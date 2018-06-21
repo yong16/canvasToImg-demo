@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <title>爱车人必做测试：看看你是开哪款车的社会人儿！</title>
+  <meta name="description" content="超跑、越野还有小三轮，哪辆车更能戳中你？看看谁将开小三轮" />
+  <link rel="stylesheet" href="css/main.css">
+  <!--动态fontSize-->
+  <script>
+  (function() {
+    var flexible = {};
+    var baseNum = 16;
+    var designWidth = 750;
+    flexible.dpr = window.devicePixelRatio || 1;
+    flexible.changeRem = function() {
+      var width = document.documentElement.getBoundingClientRect().width;
+      flexible.ratio = width / designWidth * 2;
+      flexible.rootFontSize = width / designWidth * 2 * baseNum;
+      document.documentElement.style.fontSize = flexible.rootFontSize + 'px';
+    };
+    flexible.changeRem();
+    var t;
+    window.addEventListener('resize', function() {
+      clearTimeout(t);
+      t = setTimeout(flexible.changeRem, 300);
+    }, false);
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted) {
+        clearTimeout(t);
+        t = setTimeout(flexible.changeRem, 300);
+      }
+    }, false);
+    flexible.px2rem = function(px) {
+      return parseInt(px, 10) / baseNum / 2;
+    };
+    flexible.rem2px = function(rem) {
+      return parseFloat((rem * baseNum * flexible.ratio).toFixed(6), 10);
+    };
+    window.flexible = flexible;
+  }());
+  </script>
+</head>
+<body>
+  <!-- btn start-->
+  <div class="btn-handle" style="margin-top: 80px">
+    <span class="handle-canvasToImg">点击生成图片</span>
+  </div>
+  <!-- btn end-->
+  
+  <!-- poster start-->
+  <section class="wrapper">
+    <section class="mask-poster fn-hide">
+      <img id="poster" class="save-poster" src="" />
+      <p class="m-save-tips">长按上图就可以保存图片啦！ </p>
+      <canvas id="canvas" width="640" height="810"></canvas>
+      <span class="btn-close"></span>
+      <span class="btn-app-share fn-hide"></span>
+      <div class="mask"></div>
+    </section>
+  </section>
+  <!-- poster end-->
+            
+  <!-- js start -->
+  <script src="js/zepto-1.2.2.min.js"></script>
+  
+  <script src="js/canvasToImg.js"></script>
+  <!--login end-->
+  
+</body>
+</html>

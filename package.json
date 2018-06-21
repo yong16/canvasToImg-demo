@@ -1,0 +1,13 @@
+{
+  "name": "canvasToImg-demo",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "autofe-scripts": "0.12.3"
+  },
+  "dependencies": {},
+  "scripts": {
+    "start": "autofe-scripts start",
+    "build": "autofe-scripts build"
+  }
+}
